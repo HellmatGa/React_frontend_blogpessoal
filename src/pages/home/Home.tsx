@@ -1,14 +1,57 @@
 import React from 'react'
 import './Home.css'
-import homeLogo from '../../assets/home.jpg'
+import React, { useState, useEffect } from 'react';
+interface minhaProps {
+  title: string;
+  description: string;
+}
 
-const Home = () => {
+function Home (props:minhaProps) {
   return (
     <>
-         <h1 className='titulo'>Home</h1>
-         <img src={homeLogo} className='img' alt="Imagem tela inicial" />
+      <h2>{props.title}</h2>
+      <p>{props.description}</p>
     </>
-  )
+  );
 }
+
+
+const Home = () => {
+  const [completed, setCompleted] = useState(false);
+  const [tarefa, setTarefa] = useState('');
+
+  useEffect(() => {
+    if (completed) {
+      setTarefa('Parabéns!! Você concluiu a tarefa!!')
+    }
+
+  }, [completed])
+
+  return (
+    <div>
+      <h1>Tarefa</h1>
+        <h3>{tarefa}</h3>
+        <p>Conclua a tarefa</p>
+        <button onClick={() => setCompleted(true)}>Concluir Tarefa</button>
+
+    </div>
+  );
+}
+
+const Home = () {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  return (
+    <div>
+        {loggedIn ? (
+              <h1>Bem vindo ed volta!!</h1>
+        ):(
+              <button onClick = {() = setLoggedIn(true)}>Entrar</button>
+        )
+        }
+    </div>
+  );
+}
+
 
 export default Home
