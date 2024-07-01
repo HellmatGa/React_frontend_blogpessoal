@@ -2,9 +2,7 @@ import React from 'react'
 import { FacebookLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
 
 function footer() {
- 
   
-
   return (
     <>
         <div className="flex justify-center bg-indigo-900 text-white">
